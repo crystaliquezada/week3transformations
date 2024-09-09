@@ -1,0 +1,24 @@
+---
+title: "Week 3 Transformation"
+author: "Crystal Quezada"
+date: "2024-09-09"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(dplyr)
+library(stringr)
+```
+
+```{r read site data}
+majors <- read_csv("https://github.com/crystaliquezada/week3transformations/raw/main/majors-list.csv", show_col_types = FALSE)
+```
+
+```{r transform to show majors}
+majors %>% 
+  select(Major) %>% 
+  filter(str_detect(Major, "DATA") | str_detect(Major, "STATISTICS"))
+```
+
+
