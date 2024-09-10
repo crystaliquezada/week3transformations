@@ -1,0 +1,37 @@
+---
+title: "Botanical Fruit List"
+author: "Crystal Quezada"
+date: "2024-09-09"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(dplyr)
+```
+
+```{r show fruit data}
+list <- read_csv("https://github.com/crystaliquezada/week3transformations/raw/main/Fruits%20-%20Sheet1.csv", show_col_types = FALSE)
+```
+
+```{r fruits as list}
+new_list <- list%>% 
+  mutate (Fruit_Name = c("bell pepper", "bilberry", "blackberry", "blood orange", 
+                    "blueberry", "cantaloupe", "chili pepper", "cloudberry", 
+                    "elderberry", "lime", "lychee", "mulberry", 
+                    "olive", "salal berry")) %>% 
+  mutate(Kind = c("Botanical", "Fruit", "Fruit", "Fruit", "Bruit", 
+                  "Bruit", "Botanical", "Fruit", "Fruit", "Fruit", 
+                  "Fruit", "Fruit","Fruit", "Fruit"))
+```
+
+```{r listed as vector}
+new_list %>% 
+  select(Fruit_Name)
+```
+
+
+
+
+
