@@ -1,0 +1,53 @@
+---
+title: "Week 3 Transformations"
+author: "Crystal Quezada"
+date: "2024-09-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(stringr)
+```
+
+#3
+
+(.)\1\1 - Should this read "(.)\\1\\" ? This would repeat a character three times.
+
+"(.)(.)\\2\\1" - This would repeat two characters twice and then reverse.
+
+(..)\1 - This would repeat two characters twice.
+
+"(.).\\1.\\ 1 " - This would repeat two characters three times.
+
+"(.)(.)(.).*\\3\\2\\1" - This would call three characters and then reverse it.
+
+________________________________
+
+#4
+
+Start and end with the same character
+```{r same letters}
+words <- c("racecar", "america", "radar")
+find <- str_detect(words, "^(.).*\\1$")
+find
+```
+
+Contain a repeated pair of letters (e.g. "church" contains "ch" repeated twice.)
+```{r repeated letters}
+repeats <- c("church", "coco", "perpendicular")
+search <- str_detect(repeats, "(..).*\\1")
+search
+```
+
+Contain one letter repeated in at least three places (e.g. "eleven" contains three "e"s.)
+```{r three}
+three <- c("mirror", "terror", "rearrange")
+lookup <- str_detect(three, "(.)(^\\1)*\\1(^\\1)*\\1")
+lookup
+```
+
+
+
+
